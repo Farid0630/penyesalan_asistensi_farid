@@ -1,0 +1,131 @@
+Microsoft Windows [Version 10.0.19045.4046]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\ICLABS>cd/
+
+C:\>cd mysql
+The system cannot find the path specified.
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>my sql -p root
+'my' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\xampp\mysql\bin>mysql -p root
+Enter password:
+ERROR 1045 (28000): Access denied for user 'ICLABS'@'localhost' (using password: NO)
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.023 sec)
+
+MariaDB [(none)]> create database 13020220265;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '13020220265' at line 1
+MariaDB [(none)]> create database farid;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> create database `13020220265`;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use `13020220265`
+Database changed
+MariaDB [13020220265]> create table barang;
+ERROR 1113 (42000): A table must have at least 1 column
+MariaDB [13020220265]> create table barang();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [13020220265]> create table barang()
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [13020220265]> create table barang()
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [13020220265]> create table barang(
+    -> kdBarang varchar(20) primary key,
+    -> namaBarang varchar(50),
+    -> hargaBarang int(8),
+    -> jenisBarang varchar(30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 5
+MariaDB [13020220265]> create table barang(
+    -> kdBarang varchar(20) primary key,
+    -> namaBarang varchar(50),
+    -> hargaBarang int(8),
+    -> jenisBarang varchar(30));
+Query OK, 0 rows affected (0.116 sec)
+
+MariaDB [13020220265]> show barang;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'barang' at line 1
+MariaDB [13020220265]> show table barang;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'barang' at line 1
+MariaDB [13020220265]> desc barang
+    -> ;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| kdBarang    | varchar(20) | NO   | PRI | NULL    |       |
+| namaBarang  | varchar(50) | YES  |     | NULL    |       |
+| hargaBarang | int(8)      | YES  |     | NULL    |       |
+| jenisBarang | varchar(30) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+4 rows in set (0.010 sec)
+
+MariaDB [13020220265]> create table pembeli(
+    -> idPembeli varchar(50) primary key,
+    -> namaPembeli varchar(50),
+    -> usia int(3),
+    -> jenisKelamin enum('Laki-laki','Perempuan'));
+Query OK, 0 rows affected (0.146 sec)
+
+MariaDB [13020220265]> desc pembeli;
++--------------+-------------------------------+------+-----+---------+-------+
+| Field        | Type                          | Null | Key | Default | Extra |
++--------------+-------------------------------+------+-----+---------+-------+
+| idPembeli    | varchar(50)                   | NO   | PRI | NULL    |       |
+| namaPembeli  | varchar(50)                   | YES  |     | NULL    |       |
+| usia         | int(3)                        | YES  |     | NULL    |       |
+| jenisKelamin | enum('Laki-laki','Perempuan') | YES  |     | NULL    |       |
++--------------+-------------------------------+------+-----+---------+-------+
+4 rows in set (0.010 sec)
+
+MariaDB [13020220265]> create table transaksi(
+    -> kdTransaksi varchar(5) primary key,
+    -> foreign key(id_pembeli) reference pembeli(id_pemveli));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'reference pembeli(id_pemveli))' at line 3
+MariaDB [13020220265]> create table transaksi(
+    -> kdTransaksi varchar(5) primary key,
+    -> foreign key(id_pembeli) reference pembeli(id_pembeli));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'reference pembeli(id_pembeli))' at line 3
+MariaDB [13020220265]> create table transaksi(
+    -> kdTransaksi varchar(5) primary key,
+    -> idPembeli varchar(50),
+    -> foreign key(id_pembeli) reference pembeli(id_pembeli));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'reference pembeli(id_pembeli))' at line 4
+MariaDB [13020220265]> create table transaksi(
+    -> create table transaksi(Ctrl-C -- exit!
+Bye
+
+C:\xampp\mysql\bin>
+
+C:\xampp\mysql\bin>
